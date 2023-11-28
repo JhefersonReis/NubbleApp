@@ -10,7 +10,7 @@ import { Box, BoxProps } from '../Box/Box';
 import { $fontSizes, $fontFamily, Text } from '../Text/Text';
 import { useAppTheme } from '../../hooks/useAppTheme';
 
-interface TextInputProps extends RNTextInputProps {
+export interface TextInputProps extends RNTextInputProps {
   label: string;
   errorMessage?: string;
   rightComponent?: React.ReactElement;
@@ -52,11 +52,11 @@ export function TextInput({
             {...rnTextInputProps}
             placeholderTextColor={colors.gray2}
           />
-          {rightComponent &&
-            <Box ml='s16' justifyContent='center'>
+          {rightComponent && (
+            <Box ml="s16" justifyContent="center">
               {rightComponent}
             </Box>
-          }
+          )}
         </Box>
         {errorMessage && (
           <Text color="error" preset="paragraphSmall" bold>
