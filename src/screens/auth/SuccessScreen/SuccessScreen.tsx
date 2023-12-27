@@ -3,20 +3,24 @@ import { Screen } from '../../../components/Screen/Screen';
 import { Icon } from '../../../components/Icon/Icon';
 import { Text } from '../../../components/Text/Text';
 import { Button } from '../../../components/Button/Button';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../../routes/Routes';
 
-export function SuccessScreen() {
+type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SuccessScreen'>;
+
+export function SuccessScreen({ route, navigation }: ScreenProps) {
   function goBackToBegin() {
-    console.log('go back to begin');
+    navigation.goBack();
   }
 
   return (
     <Screen>
-      <Icon name="checkRound" />
+      <Icon {...route.params.icon} />
       <Text preset="headingLarge" mt="s24">
-        Title
+        {route.params.title}
       </Text>
       <Text preset="paragraphLarge" mt="s16">
-        Description
+        {route.params.description}
       </Text>
       <Button title="Voltar ao início" mt="s40" onPress={goBackToBegin} />
     </Screen>
