@@ -5,6 +5,7 @@ import { AuthStackParamList } from './AuthStack';
 
 declare global {
   namespace ReactNavigation {
+    // eslint-disable-next-line prettier/prettier
     interface RootParamList extends AuthStackParamList, AppStackParamList { }
   }
 }
