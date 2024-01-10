@@ -12,7 +12,8 @@ export function PostImage({ imageURL }: Props) {
       resizeMode="cover"
       style={{
         width: Dimensions.get('screen').width,
-        height: 200,
+        height: 300,
+        marginHorizontal: -24,
       }}
     />
   );
