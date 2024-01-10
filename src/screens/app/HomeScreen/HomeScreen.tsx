@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Dimensions, FlatList, Image, ListRenderItemInfo } from 'react-native';
+import { FlatList, ListRenderItemInfo } from 'react-native';
 
 import { Post, postService } from '@domain';
 
-import { Box, Screen, Text } from '@components';
+import { PostItem, Screen } from '@components';
 import { AppTabScreenProps } from '@routes';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function HomeScreen({ navigation }: AppTabScreenProps<'HomeScreen'>) {
   const [postList, setPostList] = useState<Post[]>([]);
 
@@ -14,28 +15,7 @@ export function HomeScreen({ navigation }: AppTabScreenProps<'HomeScreen'>) {
   }, []);
 
   function renderItem({ item }: ListRenderItemInfo<Post>) {
-    return (
-      <Box mb="s24">
-        <Box flexDirection="row">
-          <Image
-            source={{ uri: item.author.profileURL }}
-            style={{
-              width: 32,
-              height: 32,
-            }}
-          />
-          <Text>{item.author.name}</Text>
-        </Box>
-        <Image
-          source={{ uri: item.imageURL }}
-          resizeMode="cover"
-          style={{
-            width: Dimensions.get('screen').width,
-            height: 200,
-          }}
-        />
-      </Box>
-    );
+    return <PostItem post={item} />;
   }
 
   return (
