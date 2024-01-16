@@ -4,7 +4,7 @@ import { ActivityIndicator, Box, Button, Text } from '@components';
 
 interface Props {
   loading: boolean;
-  error: boolean;
+  error: boolean | null;
   refetch: () => void;
 }
 
